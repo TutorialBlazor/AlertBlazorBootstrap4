@@ -1,0 +1,46 @@
+﻿@using AlertBlazorBootstrap.Data 
+<div class="alert @alertType" role="alert">
+
+    @Body
+</div>
+@code {
+
+    [Parameter]
+    public RenderFragment Body { get; set; }
+    [Parameter]
+    public TypeCss TypeCss { get; set;}
+
+
+    string alertType;
+
+    protected override void OnInitialized()
+    {
+        switch (TypeCss)
+        {
+            case TypeCss.Primary:
+                alertType = "alert-primary";
+                break;
+            case TypeCss.Secondary:
+                alertType = "alert-secondary";
+                break;
+            case TypeCss.Success:
+                alertType = "alert-success";
+                break;
+            case TypeCss.Danger:
+                alertType = "alert-danger";
+                break;
+            case TypeCss.Warning:
+                alertType = "alert-warning";
+                break;
+            case TypeCss.Info:
+                alertType = "alert-info";
+                break;
+            case TypeCss.Light:
+                alertType = "alert-light";
+                break;
+            case TypeCss.Dark:
+                alertType = "alert-dark";
+                break;
+        }
+    }
+}
